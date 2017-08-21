@@ -1,0 +1,116 @@
+<html>
+  <head>
+    <title>Map View</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="This is a tiny app wich plots data on a map. Everything is done client side. Just drag-drop your csv file.">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+  </head>
+  <body>
+    <div id="status-overlay" class="hidden">
+      <div class="content"></div>
+    </div>
+
+    <section id="sidebar">
+      <div id="main-menu-panel" class="hidden">
+        <div class="row">
+          <label for="current-select">Plot Key</label>
+          <select id="current-select">
+          </select>
+        </div>
+
+        <div class="row">
+          <div id="heat-map-toggle" class="checkbox">Use Heat Map?</div>
+        </div>
+
+        <div class="row inline-row">
+          <button id="reset-map-btn" class="btn">Reset Map</button>
+          <button id="fit-map-btn" class="btn">Fit To Screen</button>
+        </div>
+      </div>
+
+      <div id="index-panel" class="hidden">
+        <div class="content">
+          <div class="bars"></div>
+        </div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+
+      <div id="detail-panel" class="hidden">
+        <h2></h2>
+        <div class="content">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>%</th>
+                <th>Rank</th>
+              </tr>
+            </thead>
+            <tbody class="data-content">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="drop-file" class="drop-file">
+      <div class="notice">
+        <div class="notice-icon"></div>
+        <div class="notice-message">
+          <p>Drop a CSV file anywhere on this page to visualize the contained data on a map.</p>
+          <p>
+            The file must have the following format:
+            <table class="demo-format">
+              <thead>
+                <tr>
+                  <th>name</th>
+                  <th>latitude</th>
+                  <th>longitude</th>
+                  <th>Value 1</th>
+                  <th>Value 2</th>
+                  <th>...</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hamilton</td>
+                  <td>-37.7870</td>
+                  <td>175.2793</td>
+                  <td>100</td>
+                  <td>200</td>
+                  <td>...</td>
+                </tr>
+                <tr>
+                  <td>Tauranga</td>
+                  <td>-37.6861</td>
+                  <td>176.1667</td>
+                  <td>300</td>
+                  <td>400</td>
+                  <td>...</td>
+                </tr>
+                <tr>
+                  <td>...</td>
+                  <td>...</td>
+                  <td>...</td>
+                  <td>...</td>
+                  <td>...</td>
+                  <td>...</td>
+                </tr>
+              </tbody>
+            </table>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="map"></section>
+
+    <script src="https://maps.google.com/maps/api/js?sensor=true&key=<GOOGLE_API_KEY>"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="/javascripts/map.js"></script>
+  </body>
+</html>
